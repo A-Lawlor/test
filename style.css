@@ -71,3 +71,47 @@ body {
 .course-box p {
     color: #666;
 }
+
+#coin {
+    width: 50px;
+    height: 50px;
+    background-color: gold;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    cursor: grab;
+}
+.coin {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    cursor: grab;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-weight: bold;
+}
+
+#penny { background-color: #cd7f32; }
+#nickel { background-color: #8e8e8e; }
+#dime { background-color: #b3b3b3; }
+#quarter { background-color: #d6d6d6; }
+#halfDollar { background-color: #e5e4e2; }
+
+/* Styles for piggyBank and result remain the same */
+
+
+#piggyBank {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 10px;
+}
+
+#result {
+    color: green;
+    font-size: 20px;
+}

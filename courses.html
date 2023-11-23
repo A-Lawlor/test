@@ -37,8 +37,44 @@
         <h3>Story Time and Reading Basics</h3>
         <p>Description of the course...</p>
     </div>
+    <div class="course-box">
+        <h3>Interactive Piggy Bank</h3>
+        <p>Drag the coins into the piggy bank!</p>
+        <div class="coin" id="penny" draggable="true" data-value="0.01"></div>
+        <div class="coin" id="nickel" draggable="true" data-value="0.05"></div>
+        <div class="coin" id="dime" draggable="true" data-value="0.10"></div>
+        <div class="coin" id="quarter" draggable="true" data-value="0.25"></div>
+        <div class="coin" id="halfDollar" draggable="true" data-value="0.50"></div>
+        <div id="piggyBank"></div>
+        <div id="result"></div>
+    </div>    
     <!-- Add more course boxes here -->
 </div>
 </body>
 </html>
 
+<script>
+    var coins = document.querySelectorAll('.coin');
+    var piggyBank = document.getElementById("piggyBank");
+    var result = document.getElementById("result");
+    var total = 0;
+
+    coins.forEach(coin => {
+        coin.ondragstart = function(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        };
+    });
+
+    piggyBank.ondragover = function(event) {
+        event.preventDefault();
+    };
+
+    piggyBank.ondrop = function(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        var coin = document.getElementById(data);
+        var value = parseFloat(coin.getAttribute('data-value'));
+        total += value;
+        result.textContent = `Total: $${total.toFixed(2)}`;
+    };
+</script>
